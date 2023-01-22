@@ -6,11 +6,8 @@ public:
         sort(special.begin(),special.end());
         
         for(int i=1; i<special.size(); i++){
-            between_special = max(between_special,special[i]-special[i-1]);
+            between_special = max(between_special,(special[i]-special[i-1])-1);
         }
-        
-        if(between_special != INT_MIN)
-            between_special--;
         
         int ans =max(between_special,abs(special[0]-bottom));
         ans = max(ans,abs(top-special[special.size()-1]));
