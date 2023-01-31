@@ -1,0 +1,29 @@
+class Solution {
+public:
+    double X_center,Y_center,Radius;
+    Solution(double radius, double x_center, double y_center) {
+        X_center = x_center;
+        Y_center = y_center;
+        Radius = radius;
+    }
+    
+    vector<double> randPoint() {
+        double length,theta;
+        double random1 = (double)rand()/RAND_MAX;
+        theta = random1*2*3.141592653589793238;
+        
+        double random2 = (double)rand()/RAND_MAX;
+        length = sqrt(random2)*Radius;
+        
+        double x_coordinate = X_center + length*cos(theta);
+        double y_coordinate = Y_center + length*sin(theta);
+        
+        return vector<double>{x_coordinate,y_coordinate};
+    }
+};
+
+/**
+ * Your Solution object will be instantiated and called as such:
+ * Solution* obj = new Solution(radius, x_center, y_center);
+ * vector<double> param_1 = obj->randPoint();
+ */
